@@ -58,6 +58,7 @@ export default function Document() {
           />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touche-icon" href="/icon.png" />
+          
          
           
         </>

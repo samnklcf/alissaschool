@@ -79,6 +79,7 @@ export default function Footer() {
         </div>
       </footer>
       
+      <Script src="assets/js/pwa-services.js"></Script>
       <Script src="assets/vendors/btn.js"></Script>
       <Script src="assets/vendors/zuck_stories/zuck.min.js"></Script>
       <Script src="assets/vendors/zuck_stories/zuck.min.js"></Script>
@@ -87,7 +88,6 @@ export default function Footer() {
       <Script src="assets/vendors/nouislider/nouislider.min.js"></Script>
       <Script src="assets/vendors/nouislider/wNumb.min.js"></Script>
       <Script src="assets/js/bootstrap.bundle.min.js"></Script>
-      <Script src="assets/js/pwa-services.js"></Script>
       <Script src="assets/js/custom.js"></Script>
     </>
   );
