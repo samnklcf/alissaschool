@@ -30,7 +30,7 @@ export default function Document() {
         
           <meta
             name="description"
-            content="Unic – NFT Marketplace PWA Mobile Template"
+            content="Logiciel pour les apprenants"
           />
           <meta
             name="keywords"
@@ -40,8 +40,8 @@ export default function Document() {
           <link
             rel="icon"
             type="image/png"
-            href="images/favicon/icon-32x32.png"
-            sizes="32x32"
+            href="icon-256x256.png"
+            sizes="256x256"
           />
           {/* IOS SUPPORT */}
           <link rel="apple-touch-icon" href="images/favicon/icon-96x96.png" />
@@ -56,7 +56,10 @@ export default function Document() {
             rel="stylesheet"
             href="../../assets/vendors/zuck_stories/zuck.min.css"
           />
-          <link rel="manifest" href="_manifest.json" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touche-icon" href="/icon.png" />
+         
+          
         </>
       </Head>
       <body>
