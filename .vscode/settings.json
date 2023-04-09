@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "Bearded Theme Oceanic"
+    "workbench.colorTheme": "Bearded Theme Oceanic",
+    "liveServer.settings.port": 5502
 }

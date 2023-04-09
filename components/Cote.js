@@ -2,11 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export default function Cote() {
-  function fermer() {
-    console.log("uttutyt")
-    let body = document.querySelector("body")
-    body.classList.remove("modal-open")
-  }
+ 
    return (
     <div
       className="modal sidebarMenu -left fade"
@@ -71,7 +67,7 @@ export default function Cote() {
               <li className="nav-item"
               
               >
-                <Link className="nav-link" href="dash">
+                <Link className="nav-link" href="/">
                   <div className="icon_current">
                     <i className="ri-compass-line" />
                   </div>

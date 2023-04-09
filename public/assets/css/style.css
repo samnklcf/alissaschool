@@ -5971,7 +5971,8 @@ fieldset:disabled .btn {
   min-height: 1.2em;
 }
 .placeholder-glow .placeholder {
-  animation: placeholder-glow 2s ease-in-out infinite;
+  animation: placeholder-glow 1s ease-in-out infinite;
+  background-color: #304dd9 !important;
 }
 @keyframes placeholder-glow {
   50% {

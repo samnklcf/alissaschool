@@ -22,20 +22,10 @@ export default function Document() {
             content="#ffffff"
             media="(prefers-color-scheme: light)"
           />
-          <meta
-            name="theme-color"
-            content="#222032"
-            media="(prefers-color-scheme: dark)"
-          />
+          
         
-          <meta
-            name="description"
-            content="Logiciel pour les apprenants"
-          />
-          <meta
-            name="keywords"
-            content="bootstrap 5, mobile template, wallet, crypto, currency, about, blog, cordova, phonegap, mobile, html, nft, store, marketplace, pwa"
-          />
+          
+          
           {/* FAVICON */}
           <link
             rel="icon"

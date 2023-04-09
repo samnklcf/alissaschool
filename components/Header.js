@@ -9,12 +9,12 @@ export default function Header() {
           <div className="un-item-logo">
             <img
               className="logo-img light-mode"
-              src="images/logo.svg"
+              src="../../../../images/logo.svg"
               alt=""
             />
             <img
               className="logo-img dark-mode"
-              src="images/logo-white.svg"
+              src="../../../../images/logo-white.svg"
               alt=""
             />
           </div>
@@ -29,8 +29,8 @@ export default function Header() {
           <div className="un-user-profile">
             <a href="page-my-profile.html" aria-label="profile">
               <picture>
-                <source srcSet="images/avatar/11.jpg" type="image/webp" />
-                <img className="img-avatar" src="../assets/images/avatar/11.jpg" alt="" />
+                <source srcSet="../../../../images/avatar/11.jpg" type="image/webp" />
+                <img className="img-avatar" src="../../../../assets/images/avatar/11.jpg" alt="" />
               </picture>
             </a>
           </div>

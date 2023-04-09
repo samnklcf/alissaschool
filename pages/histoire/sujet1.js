@@ -3,10 +3,42 @@ import Image from "next/image";
 import Script from "next/script";
 import Retour from "@/components/Retour";
 import PageTitle from "@/components/PageTitle";
-
-
+import Charge from "@/components/Charge";
+import { useState, useRef } from "react";
 
 export default function Home() {
+  // ----------------partie des states--------------
+  const [sortie, setSortie] = useState("Veillez cliquez sur le bouton REDIGER");
+  const [Loader, setLoader] = useState(false);
+  // -------------------fin des states-----------------
+
+  let theme = useRef();
+
+  const FormSub = (e) => {
+    e.preventDefault();
+    setSortie("");
+    setLoader(true);
+
+    fetch("http://localhost:3060/ecole", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        donne: theme.current.value,
+      }),
+    })
+      .then(async (data) => {
+        return data.json();
+      })
+      .then(async (resp) => {
+        setSortie(resp);
+        setLoader(false);
+      })
+      .catch((e) => {
+        alert("c'est une erreur");
+        setLoader(false);
+      });
+  };
+
   return (
     <>
       <Head>
@@ -17,210 +49,195 @@ export default function Home() {
       </Head>
 
       <>
-        {/* ===================================
-START LODAER PAGE
-    ==================================== */}
-        
         <div id="wrapper">
-          {/* START CONTENT */}
           <div id="content">
-            {/* ===================================
-        START THE HEADER
-      ==================================== */}
-             <Retour lien="../" />
-            {/* ===================================
-        START THE SPACE STICKY
-      ==================================== */}
+            <Retour lien="../histoire" />
+
             <div className="space-sticky" />
-            {/* ===================================
-         START THE CONTENT
-      ==================================== */}
+
             <section className="un-page-components">
-             
-              <PageTitle title="Histoire / Sujet 1" description="Dissertation  " />
+              <PageTitle
+                title="Histoire / Sujet 1"
+                description="Dissertation  "
+              />
               <div className="content-comp p-0">
                 <div className="space-items" />
-                
-                
+
                 <div className="space-items" />
                 <div className="padding-20 form-edit-profile bg-white">
-                  <div className="form-group">
+                  <form className="form-group" onSubmit={FormSub}>
                     <label>Thème</label>
                     <input
                       type="text"
                       className="form-control"
-                     
                       placeholder="La seconde guerre mondiale"
                       required
+                      ref={theme}
                     />
-                    <div className="size-11 color-text form-text">
-                      Full name is not visible to other users
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label>Display Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter your display name"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Bio</label>
-                    <textarea
-                      className="form-control"
-                      rows={3}
-                      placeholder="Tell the world your story!"
-                      defaultValue={""}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>E-Mail Address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      defaultValue="example@mail.com"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div className="bk-social-networks">
-                    <div className="form-group with_icon">
-                      <label>Twitter</label>
-                      <div className="input_group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="@twitter username"
-                        />
-                        <div className="icon">
-                          <i className="ri-twitter-fill" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="form-group with_icon">
-                      <label>Facebook</label>
-                      <div className="input_group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="@facebook username"
-                        />
-                        <div className="icon">
-                          <i className="ri-facebook-circle-fill" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="form-group with_icon">
-                      <label>Instagram</label>
-                      <div className="input_group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="@instagram username"
-                        />
-                        <div className="icon">
-                          <i className="ri-instagram-fill" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <br />
+
+                    {Loader ? (
+                      <button type="submit" className="btn btn-primary">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          style={{
+                            margin: "auto",
+                            background: "",
+                            display: "block",
+                            shapeRendering: "auto",
+                          }}
+                          width="60px"
+                          height="25px"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid"
+                          className="img-fluid"
+                        >
+                          <circle cx={84} cy={50} r={10} fill="#29a0e4">
+                            <animate
+                              attributeName="r"
+                              repeatCount="indefinite"
+                              dur="0.25s"
+                              calcMode="spline"
+                              keyTimes="0;1"
+                              values="10;0"
+                              keySplines="0 0.5 0.5 1"
+                              begin="0s"
+                            />
+                            <animate
+                              attributeName="fill"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="discrete"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="#29a0e4;#f3ff83;#6a86f8;#eff460;#29a0e4"
+                              begin="0s"
+                            />
+                          </circle>
+                          <circle cx={16} cy={50} r={10} fill="#29a0e4">
+                            <animate
+                              attributeName="r"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="0;0;10;10;10"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="0s"
+                            />
+                            <animate
+                              attributeName="cx"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="16;16;16;50;84"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="0s"
+                            />
+                          </circle>
+                          <circle cx={50} cy={50} r={10} fill="#eff460">
+                            <animate
+                              attributeName="r"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="0;0;10;10;10"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.25s"
+                            />
+                            <animate
+                              attributeName="cx"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="16;16;16;50;84"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.25s"
+                            />
+                          </circle>
+                          <circle cx={84} cy={50} r={10} fill="#6a86f8">
+                            <animate
+                              attributeName="r"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="0;0;10;10;10"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.5s"
+                            />
+                            <animate
+                              attributeName="cx"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="16;16;16;50;84"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.5s"
+                            />
+                          </circle>
+                          <circle cx={16} cy={50} r={10} fill="#f3ff83">
+                            <animate
+                              attributeName="r"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="0;0;10;10;10"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.75s"
+                            />
+                            <animate
+                              attributeName="cx"
+                              repeatCount="indefinite"
+                              dur="1s"
+                              calcMode="spline"
+                              keyTimes="0;0.25;0.5;0.75;1"
+                              values="16;16;16;50;84"
+                              keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1"
+                              begin="-0.75s"
+                            />
+                          </circle>
+                          {/* [ldio] generated by https://loading.io/ */}
+                        </svg>
+                      </button>
+                    ) : (
+                      <button type="submit" className="btn btn-primary">
+                        Rédiger
+                      </button>
+                    )}
+                  </form>
                 </div>
                 <div className="space-items" />
-                <div className="un-put-on-marketplace bg-white">
-                  <form action="#">
-                    <div className="form-group form-with-select">
-                      <label>Price</label>
-                      <div className="input_group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder='e. g. "0.65"'
-                        />
-                        <div className="content">
-                          <select
-                            className="form-select custom-select"
-                            aria-label="Default select example"
-                          >
-                            <option selected="">ETH</option>
-                            <option value={1}>WETH</option>
-                            <option value={2}>DAI</option>
-                            <option value={3}>USDC</option>
-                            <option value={4}>ASH</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="color-text size-13 weight-500">
-                      Service fee <span className="text-dark">2.5%</span> <br />
-                      You will receive <span className="text-dark">
-                        0.65
-                      </span>{" "}
-                      ETH $950
-                    </p>
-                  </form>
-                  <form action="#">
-                    <div className="form-group form-with-select">
-                      <label>Minimum bid</label>
-                      <div className="input_group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter minimum bid"
-                        />
-                        <div className="content">
-                          <select
-                            className="form-select custom-select"
-                            aria-label="Default select example"
-                          >
-                            <option selected="">ETH</option>
-                            <option value={1}>WETH</option>
-                            <option value={2}>DAI</option>
-                            <option value={3}>USDC</option>
-                            <option value={4}>ASH</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="form-text size-11 color-text">
-                        Bids below this amount won’t be allowed.
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label>Starting Date</label>
-                      <select
-                        className="form-select form-control custom-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected="">Right after listing</option>
-                        <option value={1}>Pick specific date</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label>Expiration Date</label>
-                      <select
-                        className="form-select form-control custom-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected="">1 day</option>
-                        <option value={1}>3 day</option>
-                        <option value={2}>5 day</option>
-                        <option value={3}>7 day</option>
-                        <option value={4}>Pick specific date</option>
-                      </select>
-                    </div>
-                    <p className="color-text size-13 weight-500">
-                      Any bid placed in the last 10 minutes extends the auction
-                      by 10 minutes.
-                    </p>
-                  </form>
+              </div>
+              {/* End.content-comp */}
+            </section>
+            <section className="un-page-components">
+              <div className="un-title-default">
+                <div className="text">
+                  <h2>Résultat:</h2>
+                </div>
+              </div>
+              <div className="content-comp p-0">
+                <div className="bg-white padding-20">
+                  <p className="size-14 color-tex">{sortie}</p>
+
+                  {Loader && (
+                    <>
+                      <Charge />
+                    </>
+                  )}
                 </div>
               </div>
               {/* End.content-comp */}
             </section>
           </div>
         </div>
-        {/* ===================================
-START THE FILTER MODAL
-    ==================================== */}
+
         <div
           className="modal sidebarMenu -left --fullScreen modal-filter fade"
           id="mdllFilter"
@@ -669,9 +686,7 @@ START THE FILTER MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE NFT DETAILS MODAL
-    ==================================== */}
+
         <div
           className="modal -left --fullScreen modal-collectibles fade"
           id="mdllCollectibles"
@@ -1178,9 +1193,7 @@ START THE NFT DETAILS MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE SHARE PROFILE MODAL
-    ==================================== */}
+
         <div
           className="modal transition-bottom screenFull defaultModal mdlladd__rate fade"
           id="mdllShareProfile"
@@ -1327,9 +1340,7 @@ START THE SHARE PROFILE MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE SHARE NFT MODAL
-    ==================================== */}
+
         <div
           className="modal transition-bottom screenFull defaultModal mdlladd__rate fade"
           id="mdllShareCollectibles"
@@ -1473,9 +1484,7 @@ START THE SHARE NFT MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE BIO DETAILS MODAL
-    ==================================== */}
+
         <div
           className="modal transition-bottom screenFull defaultModal mdlladd__rate fade"
           id="mdllBioDetails"
@@ -1530,9 +1539,7 @@ START THE BIO DETAILS MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE UPLOAD MODAL
-    ==================================== */}
+
         <div
           className="modal transition-bottom screenFull defaultModal mdlladd__rate fade"
           id="mdllUploadItem"
@@ -1583,9 +1590,7 @@ START THE UPLOAD MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE ADD ETH MODAL
-    ==================================== */}
+
         <div
           className="modal transition-bottom screenFull defaultModal mdlladd__rate fade"
           id="mdllAddETH"
@@ -1664,13 +1669,7 @@ START THE ADD ETH MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START THE SIDEBAR MENU - CONNECTED MODAL
-    ==================================== */}
-      
-        {/* ===================================
-START THE SIDEBAR MENU - guest MODAL
-    ==================================== */}
+
         <div
           className="modal sidebarMenu -left -guest fade"
           id="mdllSidebar-guest"
@@ -1802,9 +1801,7 @@ START THE SIDEBAR MENU - guest MODAL
             </div>
           </div>
         </div>
-        {/* ===================================
-START STATUS CONNECTION
-    ==================================== */}
+
         <div className="d-flex justify-content-center">
           <div
             className="toast status-connection"
