@@ -14,6 +14,8 @@ export default function Home() {
 
   let theme = useRef();
 
+
+
   const FormSub = (e) => {
     e.preventDefault();
     setSortie("");
@@ -23,7 +25,12 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        donne: theme.current.value,
+        theme: `
+        Sujet de type 1 en histoire: ${theme.current.value}
+        Sois pertinent avec le date et les chiffres. 
+        Tu rédiges l'introduction et la conclusion. Je veux un plan détaillé et rédige un petit texte pour chaque point.
+            
+        ` ,
       }),
     })
       .then(async (data) => {
@@ -224,7 +231,10 @@ export default function Home() {
               </div>
               <div className="content-comp p-0">
                 <div className="bg-white padding-20">
-                  <p className="size-14 color-tex">{sortie}</p>
+                  <pre
+                    id="samnk"
+                    dangerouslySetInnerHTML={{ __html: sortie }}
+                  ></pre>
 
                   {Loader && (
                     <>
