@@ -23,7 +23,7 @@ export default function Home() {
     setLoader(true);
     console.log(theme.current.value);
 
-    fetch("http://localhost:3060/ecole", {
+    fetch("https://alissabackendfluidbysamnk.onrender.com/ecole", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
