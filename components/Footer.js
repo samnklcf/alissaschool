@@ -1,5 +1,6 @@
 import React from "react";
 import Script from "next/script";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -7,8 +8,8 @@ export default function Footer() {
       <footer className="un-bottom-navigation filter-blur">
         <div className="em_body_navigation border-0 -active-links">
           <div className="item_link">
-            <a
-              href="homepage.html"
+            <Link
+              href="/"
               className="btn btn_navLink"
               aria-label="btnNavigation"
             >
@@ -18,11 +19,11 @@ export default function Footer() {
               <div className="icon_active">
                 <i className="ri-home-5-fill" />
               </div>
-            </a>
+            </Link>
           </div>
           <div className="item_link">
-            <a
-              href="page-search-random.html"
+            <Link
+              href="/recherche"
               className="btn btn_navLink"
               aria-label="btnNavigation"
             >
@@ -32,7 +33,7 @@ export default function Footer() {
               <div className="icon_active">
                 <i className="ri-search-2-fill" />
               </div>
-            </a>
+            </Link>
           </div>
           <div className="item_link">
             <button
@@ -79,7 +80,7 @@ export default function Footer() {
             </button>
           </div>
           <div className="item_link">
-            <a
+            <Link
               href="page-favourit-random.html"
               className="btn btn_navLink"
               aria-label="btnNavigation"
@@ -90,10 +91,12 @@ export default function Footer() {
               <div className="icon_active">
                 <i className="ri-heart-3-fill" />
               </div>
-            </a>
+            </Link>
           </div>
+
           <div className="item_link">
-            <a
+
+            <Link
               href="page-account.html"
               className="btn btn_navLink"
               aria-label="btnNavigation"
@@ -104,7 +107,7 @@ export default function Footer() {
               <div className="icon_active">
                 <i className="ri-user-4-fill" />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

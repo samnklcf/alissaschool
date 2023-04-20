@@ -156,8 +156,8 @@ export default function Home() {
 
               <div className="discover-nft-random margin-t-0">
                 <div className="content-NFTs-body">
-                  <a
-                    href="page-collectibles-details.html"
+                  <Link
+                    href="/philo"
                     className="item-sm-card-NFTs"
                   >
                     <div className="cover-image">
@@ -176,7 +176,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
 
                   <Link
                     href="/histoire"

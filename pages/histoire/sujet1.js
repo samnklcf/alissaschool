@@ -41,7 +41,7 @@ export default function Home() {
         setLoader(false);
       })
       .catch((e) => {
-        alert("c'est une erreur");
+        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
         setLoader(false);
       });
   };

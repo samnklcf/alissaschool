@@ -15,8 +15,6 @@ export default function Home() {
   let theme = useRef();
   let type = useRef();
 
-
-
   const FormSub = (e) => {
     e.preventDefault();
     setSortie("");
@@ -28,9 +26,8 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         theme: `
-        Explique moi ce texte:  ${
-          theme.current.value
-        }.
+         Comportes toi comme un professeur de philosophie et explique moi ce texte:  ${theme.current.value}.
+         Soit pertinent et aborde tous les points possibles.
         ${type.current.value}
         
             
@@ -45,8 +42,12 @@ export default function Home() {
         setLoader(false);
       })
       .catch((e) => {
-        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n ');
-        setLoader(false);
+        setTimeout(() => {
+          setSortie(
+            '<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n '
+          );
+          setLoader(false);
+        }, 3000);
       });
   };
 
@@ -62,12 +63,12 @@ export default function Home() {
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../histoire" />
+            <Retour lien="../philo" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
-              <PageTitle title="Histoire / Résumé" description="Explications" />
+              <PageTitle title="Philosophie / Résumé" description="Explications" />
               <div className="content-comp p-0">
                 <div className="space-items" />
 
@@ -244,7 +245,7 @@ export default function Home() {
                         </svg>
                       </button>
                     ) : (
-                      <button type="submit" className="btn btn-primary" desable>
+                      <button type="submit" className="btn btn-primary">
                         Expliquer
                       </button>
                     )}

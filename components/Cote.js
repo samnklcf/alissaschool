@@ -18,8 +18,8 @@ export default function Cote() {
             <div className="un-user-profile">
               <div className="image_user">
                 <picture>
-                  <source srcSet="images/logo.png" type="image/webp" />
-                  <img src="images/avatar/11.jpg" alt="image" />
+                  <source srcSet="../../../../../images/logo.png" type="image/webp" />
+                  <img src="../../../images/avatar/11.jpg" alt="image" />
                 </picture>
               </div>
               <div className="text-user">

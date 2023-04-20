@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="fr">
       <Head>
         <>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,7 +34,8 @@ export default function Document() {
             sizes="256x256"
           />
           {/* IOS SUPPORT */}
-          <link rel="apple-touch-icon" href="images/favicon/icon-96x96.png" />
+          
+          <link rel="icon" href="../../../../icon-256x256.png" />
           {/* CSS FILES */}
           <link rel="stylesheet" href="../../assets/css/style.css" />
           <link rel="stylesheet" href="../../assets/css/remixicon.min.css" />
