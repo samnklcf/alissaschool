@@ -28,15 +28,31 @@ export default function Home() {
         theme: `
         Comportes toi comme un professeur de philosophie et rédiges Sujet 1: ${theme.current.value}.
         Contexte: ${cont.current.value}.
-        Sois pertinent, Assure-toi de citer des auteurs pertinents et de choisir des citations appropriées.
-        Tu es chargé de rédiger l'introduction et la conclusion, ainsi que de fournir un plan détaillé pour le développement accompagné d'un court texte explicatif juste en dessous de chaque point.
-        ${type.current.value};
+        Suis cette méthodologie:
+        Introduction:
+        -Amorce;
+        -Thèse;
+        -Antithèse;
+        -Problème;
+        -Problématique de la thèse et l'antithèse;
 
-        le développement doit être de cette manière:
+        développement:
+        1ère partie (Thèse):
+        -paragraphe 1 = Thèse + Arguments + exemple
+        -paragraphe 2 = Arguments + exemple
 
-        A - Point à rédiger
-        texte explicatif.
-        Citation
+        Transition
+        2ème partie (Antithèse):
+        -paragraphe 1 = Antithèse + Arguments + exemple
+        -paragraphe 2 = Arguments + exemple
+
+        CONCLUSION:
+        -Rappel du problème;
+        -Bilan
+        -Réponse claire aux questions posées dans l'introduction
+        -Question d'ouverture
+
+        
 
 
 

@@ -29,10 +29,33 @@ export default function Home() {
         theme: `
         Comportes toi comme un professeur de philosophie et rédiges un Commentaire de texte (Sujet3): ${theme.current.value}.
         Contexte: ${cont.current.value}
-        Sois pertinent, Assure-toi de citer des auteurs pertinents et de choisir des citations appropriées.
-        
-        ${type.current.value};
+        Affiche ça de cette manière :
 
+        INTRODUCTION:
+        -Nom de l'auteur;
+        -Titre de l'oeuvre;
+        -Question implicite de l'auteur;
+        -Thèse de l'auteur;
+        -Problématique
+
+        Développement:
+        Partie 1:
+        -Division du texte en 2 ou 3 parties; 
+        -Etude ordonnées (Petite explications des différentes parties avec tes propres mots);
+
+        -Transition
+
+        Partie 2 (Intérêt philosophique):
+        -Paragraphe 1: Présenter l'intérêt philosophique;
+        -Paragraphe 2: Donner les limites des la thèses(Discussion de la problématique posé à l'introduction)
+        
+        CONCLUSION:
+        -Bilan en rapellant l'importance de thèse;
+        -Mise en valeur des limites;
+        -Répones à la problématique.
+
+        
+       
         
 
         ` ,

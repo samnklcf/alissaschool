@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dessiner un carré avec Canvas de JavaScript</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="800" height="800"></canvas>
+
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext("2d");
+
+		context.fillStyle = "red"; // Couleur de remplissage rouge
+		context.fillRect(0, 0, 700, 700); // Dessiner un carré à partir du coin supérieur gauche à (50, 50) avec une largeur et une hauteur de 100
+	</script>
+</body>
+</html>
