@@ -38,9 +38,16 @@ export default function Home() {
         DEVELOPPEMENT:
         Problématique 1 (Le nombre problémtique dépend):
         -1er paragraphe = 1 argument + Exemple
-        -2er paragraphe = 2 argument + Exemple
+        -2eme paragraphe = 2eme argument + Exemple
+        -3eme paragraphe = 3eme argument + Exemple
+
+        Problématique 2:
+        -1er paragraphe = 1er argument + Exemple
+        -2eme paragraphe = 2eme argument + Exemple
+        -3eme paragraphe = 3eme argument + Exemple
+
+       
         
-        ...
 
         CONCLUSION:
         -Résumé / Bilan
