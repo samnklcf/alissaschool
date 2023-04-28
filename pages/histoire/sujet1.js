@@ -27,9 +27,25 @@ export default function Home() {
       body: JSON.stringify({
         theme: `
         Sujet de type 1 en histoire: ${theme.current.value}
-        Sois pertinent avec le date et les chiffres. 
-        Tu rédiges l'introduction et la conclusion. Je veux un plan détaillé et rédige un petit texte pour chaque point.
-            
+
+        Affiche ça de cette manière:
+
+        INTRODUCTION:
+        -constat;
+        -Problématique;
+        -Annonce.
+
+        DEVELOPPEMENT:
+        Problématique 1 (Le nombre problémtique dépend):
+        -1er paragraphe = 1 argument + Exemple
+        -2er paragraphe = 2 argument + Exemple
+        
+        ...
+
+        CONCLUSION:
+        -Résumé / Bilan
+        -Question d'ouverture
+        
         ` ,
       }),
     })
