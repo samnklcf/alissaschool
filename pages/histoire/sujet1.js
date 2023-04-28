@@ -33,7 +33,7 @@ export default function Home() {
         INTRODUCTION:
         -constat;
         -Problématique;
-        -Annonce.
+        -Annonce du plan.
 
         DEVELOPPEMENT:
         Problématique 1 (Le nombre problémtique dépend):
