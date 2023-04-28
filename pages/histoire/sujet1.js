@@ -36,18 +36,15 @@ export default function Home() {
         -Annonce du plan.
 
         DEVELOPPEMENT:
-        Problématique 1 (Le nombre problémtique dépend):
+        Problématique 1 (Titre):
         -1er paragraphe = 1 argument + Exemple
         -2eme paragraphe = 2eme argument + Exemple
         -3eme paragraphe = 3eme argument + Exemple
 
-        Problématique 2:
+        Problématique 2 (Titre):
         -1er paragraphe = 1er argument + Exemple
         -2eme paragraphe = 2eme argument + Exemple
         -3eme paragraphe = 3eme argument + Exemple
-
-       
-        
 
         CONCLUSION:
         -Résumé / Bilan
