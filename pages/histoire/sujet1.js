@@ -41,6 +41,8 @@ export default function Home() {
         -2eme paragraphe = 2eme argument + Exemple
         -3eme paragraphe = 3eme argument + Exemple
 
+        -Transision
+
         Problématique 2 (Titre):
         -1er paragraphe = 1er argument + Exemple
         -2eme paragraphe = 2eme argument + Exemple
