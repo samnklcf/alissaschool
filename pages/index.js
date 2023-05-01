@@ -12,7 +12,7 @@ export default function Home() {
         <title>Toutes les matières</title>
         <meta name="description" content="Toutes les matières" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+         
       </Head>
 
       <>
@@ -38,7 +38,7 @@ export default function Home() {
                 </div>
               </div>
               <br />
-              <div className="un-title-default">
+              {/* <div className="un-title-default">
                 <div className="text">
                   <h6>Sciences: </h6>
                 </div>
@@ -145,7 +145,7 @@ export default function Home() {
                 <br />
                 <div className="border-sections-home" />
               
-              </div>
+              </div> */}
               
 
               <div className="un-title-default margin-t-20">
@@ -200,7 +200,7 @@ export default function Home() {
                     </div>
                   </Link>
 
-                  <a
+                  {/* <Link
                     href="page-collectibles-details.html"
                     className="item-sm-card-NFTs"
                   >
@@ -220,7 +220,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link> */}
 
 
                   

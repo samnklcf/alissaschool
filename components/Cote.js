@@ -77,7 +77,7 @@ export default function Cote() {
                   <span className="title_link">Dashboard</span>
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" href="button">
                   <div className="icon_current">
                     <i className="ri-home-5-line" />
@@ -88,8 +88,8 @@ export default function Cote() {
                   <span className="title_link">Bouton</span>
                   <span className="xs-badge">8</span>
                 </Link>
-              </li>
-              <li className="nav-item">
+              </li> */}
+              {/* <li className="nav-item">
                 <Link className="nav-link" href="creer">
                   <div className="icon_current">
                     <i className="ri-pages-line" />
@@ -102,8 +102,8 @@ export default function Cote() {
                     <span className="doted_item" />
                   </div>
                 </Link>
-              </li>
-              <li className="nav-item">
+              </li> */}
+              {/* <li className="nav-item">
                 <Link className="nav-link" href="drop">
                   <div className="icon_current">
                     <i className="ri-layout-2-line" />
@@ -113,8 +113,8 @@ export default function Cote() {
                   </div>
                   <span className="title_link">Drop</span>
                 </Link>
-              </li>
-              <label className="title__label">Autre</label>
+              </li> */}
+              {/* <label className="title__label">Autre</label>
               <li className="nav-item">
                 <Link className="nav-link" href="formulaire">
                   <div className="icon_current">
@@ -125,8 +125,8 @@ export default function Cote() {
                   </div>
                   <span className="title_link">Formulaire</span>
                 </Link>
-              </li>
-              <li className="nav-item">
+              </li> */}
+              {/* <li className="nav-item">
                 <Link className="nav-link" href="texte">
                   <div className="icon_current">
                     <i className="ri-file-info-line" />
@@ -136,9 +136,9 @@ export default function Cote() {
                   </div>
                   <span className="title_link">Texte</span>
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" href="toast">
                   <div className="icon_current">
                     <i className="ri-file-info-line" />
@@ -148,10 +148,10 @@ export default function Cote() {
                   </div>
                   <span className="title_link">Toastes</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
-          <div className="modal-footer">
+          {/* <div className="modal-footer">
             <div className="em_darkMode_menu">
               <label className="text" htmlFor="switchDark">
                 <h3>Dark Mode</h3>
@@ -170,7 +170,7 @@ export default function Cote() {
                 <span className="handle" />
               </label>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

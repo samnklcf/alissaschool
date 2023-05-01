@@ -10,15 +10,34 @@ export default function Home() {
   // ----------------partie des states--------------
   const [sortie, setSortie] = useState("Veillez cliquez sur le bouton REDIGER");
   const [Loader, setLoader] = useState(false);
+
+  const numbers = [0, 1, 2, 3];
   // -------------------fin des states-----------------
 
   let theme = useRef();
-  let type = useRef();
-
-
+  let consigne = useRef();
+  let titre1 = useRef()
+  let nature1 = useRef();
+  let source1 = useRef();
+  let content1 = useRef();
+  let titre2 = useRef()
+  let nature2 = useRef();
+  let source2 = useRef();
+  let content2 = useRef();
+  let titre3 = useRef()
+  let nature3 = useRef();
+  let source3 = useRef();
+  let content3 = useRef();
+  let titre4 = useRef()
+  let nature4 = useRef();
+  let source4 = useRef();
+  let content4 = useRef();
+  let question = useRef();
+  
 
   const FormSub = (e) => {
     e.preventDefault();
+  
     setSortie("");
     setLoader(true);
 
@@ -27,17 +46,56 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         theme: `
-        Aide moi avec mon exposé en Philosophie. Thème: ${theme.current.value}.
-        Je veux une introduction et un conclusion rédigé. Je veux un petit texte explicatif pour chaque point.
-        Soit pertinent avec les citations et les auteurs.
-        ${type}
+        Sujet de type 2 en histoire: 
+        Thème: ${theme.current.value};
+        consigne: ${consigne.current.value};
+        
+        DOCUMENT1:
+        titre:  ${titre1.current.value};
+        nature: ${nature1.current.value};
+        source: ${source1.current.value};
+        content: ${content1.current.value}.
 
-        le développement doit être de cette manière:
+        DOCUMENT2:
+        titre:  ${titre2.current.value};
+        nature: ${nature2.current.value};
+        source: ${source2.current.value};
+        content: ${content2.current.value}.
 
-        A - Point à rédiger
-        texte explicatif.
-        Citation
-        ` ,
+        DOCUMENT3:
+        titre:  ${titre3.current.value};
+        nature: ${nature3.current.value};
+        source: ${source3.current.value};
+        content: ${content3.current.value}.
+
+        DOCUMENT4:
+        titre:  ${titre4.current.value};
+        nature: ${nature4.current.value};
+        source: ${source4.current.value};
+        content: ${content4.current.value}.
+
+        QUESTION: ${question.current.value}
+        
+
+        Affiche ça de cette manière:
+
+        INTRODUCTION:
+        -Présentation des documents;
+        -Contexte historique;
+        -Idée générale.
+
+        STRUCTURE DES REPONSES AUX QUESTIONS:
+        -Constat;
+        -Explication;
+        -Critique;
+        -Transition
+        
+
+        CONCLUSION:
+        -Résumé / Bilan
+        -Question d'ouverture
+        
+        `,
       }),
     })
       .then(async (data) => {
@@ -48,20 +106,18 @@ export default function Home() {
         setLoader(false);
       })
       .catch((e) => {
-        setTimeout(() => {
-          setSortie(
-            '<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n '
-          );
-          setLoader(false);
-        }, 3000);
+        setSortie(
+          '<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n'
+        );
+        setLoader(false);
       });
   };
 
   return (
     <>
       <Head>
-        <title>EXPOSE</title>
-        <meta name="description" content="Alissa School pour les exposés" />
+        <title>Sujet de type 3</title>
+        <meta name="description" content="Sujet de type 3" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
          
       </Head>
@@ -69,14 +125,14 @@ export default function Home() {
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../philo" />
+            <Retour lien="../histoire" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
               <PageTitle
-                title="Philosophie / Exposé"
-                description="Exposé  "
+                title="Histoire / Sujet 3"
+                description="Dissertation  "
               />
               <div className="content-comp p-0">
                 <div className="space-items" />
@@ -93,33 +149,212 @@ export default function Home() {
                       ref={theme}
                     />
                     <br />
-                    <div className="content">
-                    <label>Avec des citations africaines:</label>
-                      <select
-                        className="form-select custom-select"
-                        aria-label="Default select example"
-                        ref={type}
-                      >
-                        
-                        <option
-                          value={
-                            ""
-                          }
-                        >
-                          NON
-                        </option>
 
-                        <option
-                          value={"Je veux aussi des citations d'auteur AFRICAIN"}
-                        >
-                          OUI
-                        </option>
-                      </select>
-                    </div>
+                    <label>Consigne</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Le candidat fera un commentaire dirigé en s’aidant des questions ci-après"
+                      ref={consigne}
+                    />
+                    
+
+                    
+                      
+                    <br />
+                    <hr />
                     <br />
 
+                    <h5>Document 1</h5>
+                    <br />
+                    <label>Titre du doc:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={titre1}
+                    />
+
+                    <br />
+                    <label>Nature du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={nature1}
+                    />
+                    <br />
+                    <br />
+                    <label>Source du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Henri Michel, la seconde guerre mondiale, tome 2, 1970."
+                      ref={source1}
+                    />
+                    <br />
+                    <label>Contenu du document</label>
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="Saisissez le texte, ou décrivez ce que vous voyez"
+                      required
+                      ref={content1}
+                      rows={3}
+                    />
+                    <br />
+ 
+                    <br />
+                    <hr />
+                    <br />
+
+                    <h5>Document 2</h5>
+
+                    <br />
+                    <label>Titre du doc:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={titre2}
+                    />
+
+                    <br />
+                    <label>Nature du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={nature2}
+                    />
+                    <br />
+                    <br />
+                    <label>Source du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Henri Michel, la seconde guerre mondiale, tome 2, 1970."
+                      ref={source2}
+                    />
+                    <br />
+                    <label>Contenu du document</label>
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="Saisissez le texte, ou décrivez ce que vous voyez"
+                      required
+                      ref={content2}
+                      rows={3}
+                    />
+                    <br />
+                    <hr />
+                    <br />
+
+                    <h5>Document 3</h5>
+
+                    <br />
+                    <label>Titre du doc:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={titre3}
+                    />
+
+                    <br />
+                    <label>Nature du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={nature3}
+                    />
+                    <br />
+                    <br />
+                    <label>Source du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Henri Michel, la seconde guerre mondiale, tome 2, 1970."
+                      ref={source3}
+                    />
+                    <br />
+                    <label>Contenu du document</label>
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="Saisissez le texte, ou décrivez ce que vous voyez"
+                      required
+                      ref={content3}
+                      rows={3}
+                    />
+                    <br />
+                    <hr />
+                    <br />
+
+                    <h5>Document 4</h5>
+
+                    <br />
+                    <label>Titre du doc:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={titre4}
+                    />
+
+                    <br />
+                    <label>Nature du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="discours, tableaux statistiques, graphiques, caricatures, etc."
+                      ref={nature4}
+                    />
+                    <br />
+                    <br />
+                    <label>Source du document</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Henri Michel, la seconde guerre mondiale, tome 2, 1970."
+                      ref={source4}
+                    />
+                    <br />
+                    <label>Contenu du document</label>
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="Saisissez le texte, ou décrivez ce que vous voyez"
+                      required
+                      ref={content4}
+                      rows={3}
+                    />
+
+<br />
+                    <hr />
+                    <br />
+
+                    <h5>Questions</h5>
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="1/ Rappelez les manifestations de la solidarité des vainqueurs au sein de la Grande Alliance en 1945–
+                      1946 (document 1) ;
+                      2/ Expliquez l’évolution politique révélée par le document 2 ;
+                      3/ A partir du document 3, analysez les principes défendus par le président des Etats Unis ;
+                      4/ Justifiez l’initiative prise par les communistes français en riposte au plan Marshall (document 4) ;"
+                      required
+                      ref={question}
+                      rows={6}
+                    />
+
+                    <br /><br />
+                      
+                   
+
                     {Loader ? (
-                      <button type="submit" className="btn btn-primary " disabled>
+                      <button type="submit" className="btn btn-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -252,11 +487,9 @@ export default function Home() {
                         Rédiger
                       </button>
                     )}
-                    <br />
-                    <br />
-                    <b className="petit">Je ne fournis pas de réponse ou de solution complète, mais plutôt une orientation générale pour vous aider à trouver les informations dont vous avez besoin.</b>
                   </form>
                 </div>
+
                 <div className="space-items" />
               </div>
               {/* End.content-comp */}

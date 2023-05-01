@@ -30,7 +30,7 @@ export default function Document() {
           <link
             rel="icon"
             type="image/png"
-            href="icon-256x256.png"
+            href="../../../../icon-256x256.png"
             sizes="256x256"
           />
           {/* IOS SUPPORT */}

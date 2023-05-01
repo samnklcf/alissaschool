@@ -5,29 +5,20 @@ export default function Header() {
   return (
     <>
       <header className="default heade-sticky">
-        <a href="index.html">
+        <>
           <div className="un-item-logo">
-            <img
-              className="logo-img light-mode"
-              src="../../../../images/logo.svg"
-              alt=""
-            />
-            <img
-              className="logo-img dark-mode"
-              src="../../../../images/logo-white.svg"
-              alt=""
-            />
+            <b><span>School</span> AI</b>
           </div>
-        </a>
+        </>
         <div className="un-block-right">
           <div className="un-notification">
-            <a href="page-activity.html" aria-label="activity">
+            <a href="#" aria-label="activity">
               <i className="ri-notification-line" />
             </a>
             <span className="bull-activity" />
           </div>
           <div className="un-user-profile">
-            <a href="page-my-profile.html" aria-label="profile">
+            <a href="#" aria-label="profile">
               <picture>
                 <source srcSet="../../../../images/avatar/11.jpg" type="image/webp" />
                 <img className="img-avatar" src="../../../../assets/images/avatar/11.jpg" alt="" />

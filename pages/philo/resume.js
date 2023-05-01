@@ -57,7 +57,7 @@ export default function Home() {
         <title>Résumé de cours</title>
         <meta name="description" content="Résumé de cours" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+         
       </Head>
 
       <>

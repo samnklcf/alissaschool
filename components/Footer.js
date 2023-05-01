@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
           <div className="item_link">
             <Link
-              href="page-favourit-random.html"
+              href="#"
               className="btn btn_navLink"
               aria-label="btnNavigation"
             >
@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="item_link">
 
             <Link
-              href="page-account.html"
+              href="#"
               className="btn btn_navLink"
               aria-label="btnNavigation"
             >

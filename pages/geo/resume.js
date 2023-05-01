@@ -21,23 +21,20 @@ export default function Home() {
     e.preventDefault();
     setSortie("");
     setLoader(true);
+    console.log(theme.current.value);
 
     fetch("https://alissabackendfluidbysamnk.onrender.com/ecole", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         theme: `
-        Aide moi avec mon exposé en Philosophie. Thème: ${theme.current.value}.
-        Je veux une introduction et un conclusion rédigé. Je veux un petit texte explicatif pour chaque point.
-        Soit pertinent avec les citations et les auteurs.
-        ${type}
-
-        le développement doit être de cette manière:
-
-        A - Point à rédiger
-        texte explicatif.
-        Citation
-        ` ,
+        Explique moi ce texte:  ${
+          theme.current.value
+        }.
+        ${type.current.value}
+        
+            
+        `,
       }),
     })
       .then(async (data) => {
@@ -48,78 +45,77 @@ export default function Home() {
         setLoader(false);
       })
       .catch((e) => {
-        setTimeout(() => {
-          setSortie(
-            '<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n '
-          );
-          setLoader(false);
-        }, 3000);
+        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n ');
+        setLoader(false);
       });
   };
 
   return (
     <>
       <Head>
-        <title>EXPOSE</title>
-        <meta name="description" content="Alissa School pour les exposés" />
+        <title>Résumé de cours</title>
+        <meta name="description" content="Résumé de cours" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-         
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../philo" />
+            <Retour lien="../histoire" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
-              <PageTitle
-                title="Philosophie / Exposé"
-                description="Exposé  "
-              />
+              <PageTitle title="Histoire / Résumé" description="Explications" />
               <div className="content-comp p-0">
                 <div className="space-items" />
 
                 <div className="space-items" />
                 <div className="padding-20 form-edit-profile bg-white">
                   <form className="form-group" onSubmit={FormSub}>
-                    <label>Thème</label>
-                    <input
-                      type="text"
+                    <label>Sujet</label>
+
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="10"
                       className="form-control"
                       placeholder="La seconde guerre mondiale"
-                      required
+                      require
                       ref={theme}
-                    />
+                    ></textarea>
                     <br />
                     <div className="content">
-                    <label>Avec des citations africaines:</label>
                       <select
                         className="form-select custom-select"
                         aria-label="Default select example"
                         ref={type}
                       >
-                        
+                        <option value={""}>Normalement</option>
                         <option
                           value={
-                            ""
+                            "Pouvez-vous m'expliquer cela de manière claire et facile à comprendre, comme si vous vous adressiez à un élève très intelligent ?"
                           }
                         >
-                          NON
+                          Comme un élève surdoué
                         </option>
-
                         <option
-                          value={"Je veux aussi des citations d'auteur AFRICAIN"}
+                          value={"Explique moi cela comme un enfant de 5 ans"}
                         >
-                          OUI
+                          Comme un enfant de 5 ans
                         </option>
                       </select>
                     </div>
                     <br />
 
                     {Loader ? (
-                      <button type="submit" className="btn btn-primary " disabled>
+                      <button
+                        type="submit"
+                        className="btn btn-primary "
+                        disabled
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -248,13 +244,11 @@ export default function Home() {
                         </svg>
                       </button>
                     ) : (
-                      <button type="submit" className="btn btn-primary">
-                        Rédiger
+                      <button type="submit" className="btn btn-primary" desable>
+                        Expliquer
                       </button>
                     )}
                     <br />
-                    <br />
-                    <b className="petit">Je ne fournis pas de réponse ou de solution complète, mais plutôt une orientation générale pour vous aider à trouver les informations dont vous avez besoin.</b>
                   </form>
                 </div>
                 <div className="space-items" />
@@ -283,455 +277,6 @@ export default function Home() {
               </div>
               {/* End.content-comp */}
             </section>
-          </div>
-        </div>
-
-        <div
-          className="modal sidebarMenu -left --fullScreen modal-filter fade"
-          id="mdllFilter"
-          tabIndex={-1}
-          aria-labelledby="sidebarMenuLabel3"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-scrollable">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="title-modal">Filters</h1>
-                <button type="button" className="btn btn-clear">
-                  - Reset filter
-                </button>
-                <button
-                  type="button"
-                  className="btn btnClose"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <i className="ri-close-fill" />
-                </button>
-              </div>
-              <div className="modal-body">
-                <div className="slider-range-price">
-                  <div className="content-slider">
-                    <div className="header">
-                      <h2>Price Range</h2>
-                      <div className="auto-price">
-                        <div className="input-text-price min">
-                          <input
-                            type="text"
-                            className="input-with-keypress-0"
-                            id="input-with-keypress-0"
-                          />
-                          <span>ETH</span>
-                        </div>
-                        <span className="mx-1 color-text">-</span>
-                        <div className="input-text-price max">
-                          <input
-                            type="text"
-                            className="input-with-keypress-1"
-                            id="input-with-keypress-1"
-                          />
-                          <span>ETH</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="steps-slider" id="steps-slider" />
-                    <div className="price-under-line">
-                      <span>0.01 ETH</span>
-                      <span>100 ETH</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-filter-checkbox">
-                  <h2 className="title-form">Categories</h2>
-                  <ul className="nav flex-column nav-checkbox">
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault"
-                          >
-                            All NFTs
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(15)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            defaultChecked=""
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault2"
-                          >
-                            Gaming
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(9)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault3"
-                          >
-                            Art
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(6)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault4"
-                          >
-                            Sport
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(3)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault5"
-                          >
-                            Virtual Worlds
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(9)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault6"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault6"
-                          >
-                            Music
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(3)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault7"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault7"
-                          >
-                            Collectibles
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(7)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="flexCheckDefault8"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault8"
-                          >
-                            Domain Names
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(5)</span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="form-filter-checkbox">
-                  <h2 className="title-form">Status</h2>
-                  <ul className="nav flex-column nav-checkbox">
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="statusCheckDefault"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="statusCheckDefault"
-                          >
-                            Buy Now
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(15)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            defaultChecked=""
-                            type="checkbox"
-                            defaultValue=""
-                            id="statusCheckDefault2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="statusCheckDefault2"
-                          >
-                            On Auction
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(9)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="statusCheckDefault3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="statusCheckDefault3"
-                          >
-                            New
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(6)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            defaultChecked=""
-                            type="checkbox"
-                            defaultValue=""
-                            id="statusCheckDefault4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="statusCheckDefault4"
-                          >
-                            Has Offers
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(3)</span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="form-filter-checkbox">
-                  <h2 className="title-form">Colors</h2>
-                  <ul className="nav flex-column nav-checkbox">
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="colorsCheckDefault"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="colorsCheckDefault"
-                          >
-                            Pink
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(15)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            defaultChecked=""
-                            type="checkbox"
-                            defaultValue=""
-                            id="colorsCheckDefault2"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="colorsCheckDefault2"
-                          >
-                            Blue
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(9)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="colorsCheckDefault3"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="colorsCheckDefault3"
-                          >
-                            Red
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(6)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="colorsCheckDefault4"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="colorsCheckDefault4"
-                          >
-                            Orange
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(3)</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="nav-item">
-                      <div className="item-checkbox-filter">
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultValue=""
-                            id="colorsCheckDefault5"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="colorsCheckDefault5"
-                          >
-                            Yollow
-                          </label>
-                        </div>
-                        <div className="number-category">
-                          <span>(3)</span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="modal-footer justify-content-center border-0 pt-2">
-                <a
-                  href="page-search-random.html"
-                  className="btn btn-apply-filter"
-                >
-                  <p>
-                    Apply <span>(5)</span>
-                  </p>
-                  <div className="ico">
-                    <i className="ri-arrow-drop-right-line" />
-                  </div>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 
