@@ -37,16 +37,16 @@ export default function Home() {
 
         DEVELOPPEMENT:
         Problématique 1 (Titre):
-        -1er paragraphe = 1 argument + Exemple
-        -2eme paragraphe = 2eme argument + Exemple
-        -3eme paragraphe = 3eme argument + Exemple
+        -1er paragraphe = 1 argument+ petite explication + Exemple
+        -2eme paragraphe = 2eme argument + petite explication + Exemple
+        -3eme paragraphe = 3eme argument + petite explication + Exemple
 
         -Transision
 
         Problématique 2 (Titre):
-        -1er paragraphe = 1er argument + Exemple
-        -2eme paragraphe = 2eme argument + Exemple
-        -3eme paragraphe = 3eme argument + Exemple
+        -1er paragraphe = 1er argument + petite explication  + Exemple
+        -2eme paragraphe = 2eme argument + petite explication + Exemple
+        -3eme paragraphe = 3eme argument + petite explication + Exemple
 
         CONCLUSION:
         -Résumé / Bilan
