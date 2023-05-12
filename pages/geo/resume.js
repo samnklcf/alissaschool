@@ -56,25 +56,25 @@ export default function Home() {
         <title>Résumé de cours</title>
         <meta name="description" content="Résumé de cours" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+  
       </Head>
 
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../histoire" />
+            <Retour lien="../geo" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
-              <PageTitle title="Histoire / Résumé" description="Explications" />
+              <PageTitle title="Geographie / Résumé" description="Explications" />
               <div className="content-comp p-0">
                 <div className="space-items" />
 
                 <div className="space-items" />
                 <div className="padding-20 form-edit-profile bg-white">
                   <form className="form-group" onSubmit={FormSub}>
-                    <label>Sujet</label>
+                    <label>Sujet / texte </label>
 
                     <textarea
                       name=""
@@ -82,7 +82,7 @@ export default function Home() {
                       cols="30"
                       rows="10"
                       className="form-control"
-                      placeholder="La seconde guerre mondiale"
+                      placeholder="Le tourisme au gabon."
                       require
                       ref={theme}
                     ></textarea>
@@ -96,7 +96,7 @@ export default function Home() {
                         <option value={""}>Normalement</option>
                         <option
                           value={
-                            "Pouvez-vous m'expliquer cela de manière claire et facile à comprendre, comme si vous vous adressiez à un élève très intelligent ?"
+                            "-Explique moi cela de manière claire et facile à comprendre, comme si tu t'adressais à un élève très intelligent ?"
                           }
                         >
                           Comme un élève surdoué

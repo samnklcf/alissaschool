@@ -46,7 +46,7 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         theme: `
-        Sujet de type 2 en histoire: 
+        Sujet de type 2 en Géographie: 
         Thème: ${theme.current.value};
         consigne: ${consigne.current.value};
         
@@ -125,13 +125,13 @@ export default function Home() {
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../histoire" />
+            <Retour lien="../geo" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
               <PageTitle
-                title="Histoire / Sujet 3"
+                title="Géographie / Sujet 3"
                 description="Dissertation  "
               />
               <div className="content-comp p-0">
@@ -144,7 +144,7 @@ export default function Home() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="La seconde guerre mondiale"
+                      placeholder="Le tourisme au Gabon."
                       required
                       ref={theme}
                     />
@@ -154,7 +154,8 @@ export default function Home() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Le candidat fera un commentaire dirigé en s’aidant des questions ci-après"
+                      placeholder="Le candidat fera un commentaire dirigé en s’aidant des questions ci-après :
+                      "
                       ref={consigne}
                     />
                     
@@ -339,11 +340,13 @@ export default function Home() {
                     <textarea
                       type="text"
                       className="form-control"
-                      placeholder="1/ Rappelez les manifestations de la solidarité des vainqueurs au sein de la Grande Alliance en 1945–
-                      1946 (document 1) ;
-                      2/ Expliquez l’évolution politique révélée par le document 2 ;
-                      3/ A partir du document 3, analysez les principes défendus par le président des Etats Unis ;
-                      4/ Justifiez l’initiative prise par les communistes français en riposte au plan Marshall (document 4) ;"
+                      placeholder="1/ En vous appuyant sur le document 1, montrez la place du tourisme dans l’économie gabonaise ;
+                      2/ Identifiez les obstacles qui freinent le développement de l’activité touristique dans notre pays
+                      (document 2) ;
+                      3/ A partir du document 3, déterminez les potentialités touristiques dont regorge le milieu naturel
+                      gabonais ;
+                      4/ En vous aidant du document 4, suggérez les enjeux que la valorisation du secteur touristique peut
+                      créer pour le Gabon"
                       required
                       ref={question}
                       rows={6}

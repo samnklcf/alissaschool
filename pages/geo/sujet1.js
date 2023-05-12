@@ -26,7 +26,7 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         theme: `
-        Sujet de type 1 en histoire: ${theme.current.value}
+        Sujet de type 1 en géographie: ${theme.current.value}
 
         Affiche ça de cette manière:
 
@@ -80,13 +80,13 @@ export default function Home() {
       <>
         <div id="wrapper">
           <div id="content">
-            <Retour lien="../histoire" />
+            <Retour lien="../geo" />
 
             <div className="space-sticky" />
 
             <section className="un-page-components">
               <PageTitle
-                title="Histoire / Sujet 1"
+                title="Géographie / Sujet 1"
                 description="Dissertation  "
               />
               <div className="content-comp p-0">
@@ -99,7 +99,7 @@ export default function Home() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="La seconde guerre mondiale"
+                      placeholder="La question du sous-développement : caractères, origines et tentatives de solutions."
                       required
                       ref={theme}
                     />

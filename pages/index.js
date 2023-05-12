@@ -200,8 +200,8 @@ export default function Home() {
                     </div>
                   </Link>
 
-                  {/* <Link
-                    href="page-collectibles-details.html"
+                  <Link
+                    href="/geo"
                     className="item-sm-card-NFTs"
                   >
                     <div className="cover-image">
@@ -220,7 +220,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </Link> */}
+                  </Link>
 
 
                   
