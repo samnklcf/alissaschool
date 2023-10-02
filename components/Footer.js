@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="item_link">
 
             <Link
-              href="#"
+              href="/lire"
               className="btn btn_navLink"
               aria-label="btnNavigation"
             >
