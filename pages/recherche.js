@@ -40,6 +40,7 @@ function Recherche() {
       .then(async (resp) => {
         setSortie(resp);
         setLoader(false);
+        console.log(resp)
       })
       .catch((e) => {
         setTimeout(() => {
