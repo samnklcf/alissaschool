@@ -47,7 +47,17 @@ function Recherche() {
 
   return (
     <div className="App">
-      <h1>Extraction de texte depuis une image</h1>
+      <center>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <h4>Extraction de texte depuis une image</h4>
+      <br />
+      <br />
       <form onSubmit={handleSubmit}>
         <input
           type="file"
@@ -67,6 +77,7 @@ function Recherche() {
           {extractedText ? extractedText : "Veillez patienter"}
         </pre>
       </div>
+      </center>
     </div>
   );
 }
