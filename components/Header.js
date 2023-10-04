@@ -20,8 +20,8 @@ export default function Header() {
           <div className="un-user-profile">
             <a href="#" aria-label="profile">
               <picture>
-                <source srcSet="../../../../images/avatar/11.jpg" type="image/webp" />
-                <img className="img-avatar" src="../../../../assets/images/avatar/11.jpg" alt="" />
+                <source srcSet="../../../../images/logo.png" type="image/webp" />
+                <img className="img-avatar" src="../../../../assets/images/logo.png" alt="" />
               </picture>
             </a>
           </div>
