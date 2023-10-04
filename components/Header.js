@@ -7,7 +7,7 @@ export default function Header() {
       <header className="default heade-sticky">
         <>
           <div className="un-item-logo">
-            <b><span>Génius</span> Edu</b>
+            <b><span>School</span> AI</b>
           </div>
         </>
         <div className="un-block-right">
