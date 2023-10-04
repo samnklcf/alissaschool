@@ -20580,3 +20580,7 @@ pre{
   font-size: 12px !important;
   color: #ff1f25 !important;
 }
+
+.solo {
+  padding: 0 10px;
+}

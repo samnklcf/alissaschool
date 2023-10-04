@@ -46,7 +46,7 @@ function Recherche() {
   };
 
   return (
-    <div className="App">
+    <div className="App solo">
       <center>
       <br />
       <br />
