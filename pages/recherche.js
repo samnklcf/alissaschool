@@ -23,11 +23,11 @@ function Recherche() {
     setSortie("");
     setLoader(true);
 
-    fetch("https://alissabackendfluidbysamnk-mbrn.onrender.com/ecole", {
+    fetch("/api/generator", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        promptSend: `
         ${theme.current.value}
         
        
