@@ -41,7 +41,7 @@ export default function Home() {
     setSortie("");
     setLoader(true);
 
-    fetch("https://alissabackendfluidbysamnk-mbrn.onrender.com/ecole", {
+    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/ai/alissa", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
