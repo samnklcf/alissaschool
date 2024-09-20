@@ -26,7 +26,7 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        data: `
         Aide moi avec mon exposé en Philosophie. Thème: ${theme.current.value}.
         Je veux une introduction et un conclusion rédigé. Je veux un petit texte explicatif pour chaque point.
         Soit pertinent avec les citations et les auteurs.

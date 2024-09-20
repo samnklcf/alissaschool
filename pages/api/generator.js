@@ -7,7 +7,9 @@ export default function handler(req, res) {
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_API_KEY,
     });
-    const openai = new OpenAIApi(configuration);
+
+    try {
+      const openai = new OpenAIApi(configuration);
     let promptSend = req.body.promptSend
 
     const response = await openai.createCompletion({
@@ -22,7 +24,9 @@ export default function handler(req, res) {
     });
 
     res.status(200).json(response.data.choices[0].text);
-  }
-
+    console.log(response.data.choices[0].text);
+  } catch (error) {
+      console.log(error.message)
+    }
   sam();
-}
+}}

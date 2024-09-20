@@ -23,11 +23,11 @@ function Recherche() {
     setSortie("");
     setLoader(true);
 
-    fetch("/api/generator", {
-      method: "POST",
+    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/ai/alissa", {
+      method: "GET",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        promptSend: `
+        data: `
         ${theme.current.value}
         
        

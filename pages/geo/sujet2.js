@@ -45,7 +45,7 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        data: `
         Sujet de type 2 en Géographie: 
         Thème: ${theme.current.value};
         consigne: ${consigne.current.value};

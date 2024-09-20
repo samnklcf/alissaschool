@@ -25,7 +25,7 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        data: `
         Aide moi avec mon exposé en géographie. Thème: ${theme.current.value}.
         Je veux une introduction et un conclusion rédigé. Un plan détaillé et un texte explicatif pour chaque point.
         Soit pertinent avec les dates et les chiffres.

@@ -25,7 +25,7 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        data: `
         Sujet de type 1 en histoire: ${theme.current.value}
 
         Affiche ça de cette manière:
