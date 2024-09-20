@@ -23,7 +23,7 @@ export default function Home() {
     setLoader(true);
     console.log(theme.current.value);
 
-    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/ai/alissa", {
+    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/api/alissa", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

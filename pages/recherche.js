@@ -23,8 +23,8 @@ function Recherche() {
     setSortie("");
     setLoader(true);
 
-    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/ai/alissa", {
-      method: "GET",
+    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/api/alissa", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         data: `
