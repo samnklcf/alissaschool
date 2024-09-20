@@ -21,7 +21,7 @@ export default function Home() {
     setLoader(true);
     console.log(theme.current.value);
 
-    fetch("https://alissabackendfluidbysamnk-mbrn.onrender.com/ecole", {
+    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/ai/alissa", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
