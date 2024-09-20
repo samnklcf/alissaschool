@@ -25,7 +25,7 @@ export default function Home() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        theme: `
+        data: `
          Comportes toi comme un professeur de philosophie et explique moi ce texte:  ${theme.current.value}.
          Soit pertinent et aborde tous les points possibles.
         ${type.current.value}
