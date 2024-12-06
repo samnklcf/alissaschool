@@ -21,30 +21,47 @@ export default function Home() {
     setSortie("");
     setLoader(true);
 
-    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/api/alissa", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: `
-        Aide moi avec mon exposé en histoire. Thème: ${theme.current.value}.
-        Je veux une introduction et un conclusion rédigé. Un plan détaillé et un texte explicatif pour chaque point.
-        Soit pertinent avec les dates et les chiffres.
-            
-        ` ,
-      }),
+    fetch("https://api.x.ai/v1/chat/completions", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": "Bearer xai-Dl3MrmwZW5o5vk2MWRhVNso68U1kjNypAQIwPfFH2tPbA87ZkkBc388pXonaK5VexleQiovPyN9VWs7N"
+        },
+        body: JSON.stringify({
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a test assistant."
+                },
+                {
+                    role: "user",
+                    content: `
+                    Aide moi avec mon exposé en histoire. 
+                    Thème: ${theme.current.value}.
+                    Je veux une introduction et une conclusion rédigées, 
+                    un plan détaillé, et un texte explicatif pour chaque point.
+                    Sois pertinent avec les dates et les chiffres.
+                    `
+                }
+            ],
+            model: "grok-beta",
+            stream: false,
+            temperature: 0
+        }),
     })
-      .then(async (data) => {
-        return data.json();
-      })
-      .then(async (resp) => {
-        setSortie(resp);
-        setLoader(false);
-      })
-      .catch((e) => {
-        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
-        setLoader(false);
-      });
-  };
+        .then(async (data) => {
+            return data.json();
+        })
+        .then(async (resp) => {
+            setSortie(resp.choices[0]?.message?.content || "Aucune réponse obtenue.");
+            setLoader(false);
+        })
+        .catch((e) => {
+            setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
+            setLoader(false);
+            console.log(e)
+        });
+};
 
   return (
     <>

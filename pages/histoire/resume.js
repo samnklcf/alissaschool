@@ -23,32 +23,46 @@ export default function Home() {
     setLoader(true);
     console.log(theme.current.value);
 
-    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/api/alissa", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: `
-        Explique moi ce texte:  ${
-          theme.current.value
-        }.
-        ${type.current.value}
-        
-            
-        `,
-      }),
+    fetch("https://api.x.ai/v1/chat/completions", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": "Bearer xai-Dl3MrmwZW5o5vk2MWRhVNso68U1kjNypAQIwPfFH2tPbA87ZkkBc388pXonaK5VexleQiovPyN9VWs7N"
+        },
+        body: JSON.stringify({
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a test assistant."
+                },
+                {
+                    role: "user",
+                    content: `
+                    Explique-moi ce texte : 
+                    ${theme.current.value}.
+                    
+                    ${type.current.value}
+                    `
+                }
+            ],
+            model: "grok-beta",
+            stream: false,
+            temperature: 0
+        }),
     })
-      .then(async (data) => {
-        return data.json();
-      })
-      .then(async (resp) => {
-        setSortie(resp);
-        setLoader(false);
-      })
-      .catch((e) => {
-        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n ');
-        setLoader(false);
-      });
-  };
+        .then(async (data) => {
+            return data.json();
+        })
+        .then(async (resp) => {
+            setSortie(resp.choices[0]?.message?.content || "Aucune réponse obtenue.");
+            setLoader(false);
+        })
+        .catch((e) => {
+            setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
+            setLoader(false);
+        });
+};
+
 
   return (
     <>

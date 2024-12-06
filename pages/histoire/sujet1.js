@@ -21,52 +21,67 @@ export default function Home() {
     setSortie("");
     setLoader(true);
 
-    fetch("https://alissabackfluid-dot-alissa-ia.uc.r.appspot.com/api/alissa", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: `
-        Sujet de type 1 en histoire: ${theme.current.value}
+    fetch("https://api.x.ai/v1/chat/completions", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": "Bearer xai-Dl3MrmwZW5o5vk2MWRhVNso68U1kjNypAQIwPfFH2tPbA87ZkkBc388pXonaK5VexleQiovPyN9VWs7N"
+        },
+        body: JSON.stringify({
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a test assistant."
+                },
+                {
+                    role: "user",
+                    content: `
+                    Sujet de type 1 en histoire: ${theme.current.value}
 
-        Affiche ça de cette manière:
+                    Affiche ça de cette manière:
 
-        INTRODUCTION:
-        -constat;
-        -Problématique;
-        -Annonce du plan.
+                    INTRODUCTION:
+                    - Constat;
+                    - Problématique;
+                    - Annonce du plan.
 
-        DEVELOPPEMENT:
-        Problématique 1 (Titre):
-        -1er paragraphe = 1 argument+ explication + Exemple
-        -2eme paragraphe = 2eme argument + explication + Exemple
-        -3eme paragraphe = 3eme argument + explication + Exemple
+                    DEVELOPPEMENT:
+                    Problématique 1 (Titre):
+                    - 1er paragraphe = 1 argument + explication + exemple
+                    - 2ème paragraphe = 2ème argument + explication + exemple
+                    - 3ème paragraphe = 3ème argument + explication + exemple
 
-        -Transision
+                    - Transition
 
-        Problématique 2 (Titre):
-        -1er paragraphe = 1er argument + explication  + Exemple
-        -2eme paragraphe = 2eme argument + explication + Exemple
-        -3eme paragraphe = 3eme argument + explication + Exemple
+                    Problématique 2 (Titre):
+                    - 1er paragraphe = 1er argument + explication + exemple
+                    - 2ème paragraphe = 2ème argument + explication + exemple
+                    - 3ème paragraphe = 3ème argument + explication + exemple
 
-        CONCLUSION:
-        -Résumé / Bilan
-        -Question d'ouverture
-        
-        ` ,
-      }),
+                    CONCLUSION:
+                    - Résumé / Bilan
+                    - Question d'ouverture
+                    `
+                }
+            ],
+            model: "grok-beta",
+            stream: false,
+            temperature: 0
+        }),
     })
-      .then(async (data) => {
-        return data.json();
-      })
-      .then(async (resp) => {
-        setSortie(resp);
-        setLoader(false);
-      })
-      .catch((e) => {
-        setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
-        setLoader(false);
-      });
-  };
+        .then(async (data) => {
+            return data.json();
+        })
+        .then(async (resp) => {
+            setSortie(resp.choices[0]?.message?.content || "Aucune réponse obtenue.");
+            setLoader(false);
+        })
+        .catch((e) => {
+            setSortie('<b style="color: red;">Il y a un problème de connexion😣 📶<i>veuillez réessayer</i></b> . Veuillez appuyer sur le bouton de génération \n');
+            setLoader(false);
+        });
+};
+
 
   return (
     <>
